@@ -48,10 +48,11 @@ def handle_request(request):
     # Jika file tidak ditemukan
     except FileNotFoundError:
         # Membuat konten untuk pesan 404 Not Found
+        print("404 Error..")
         content = b"<h1>404 Not Found</h1>"
         # Membuat response header untuk pesan 404 Not Found
         response_header = f"HTTP/1.1 404 Not Found\r\nContent-Length: {len(content)}\r\nContent-Type: text/html\r\n\r\n"
-
+		
     # Menggabungkan response header dan konten untuk menghasilkan response lengkap
     http_response = response_header.encode() + content
     return http_response
