@@ -6,7 +6,7 @@ def main():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Mengaitkan socket ke alamat dan port tertentu
     server_socket.bind(('localhost', 8080))
-    # Mengatur socket untuk mendengarkan koneksi masuk
+    # Mengatur socket untuk mem koneksi masuk
     server_socket.listen(1)
 
     print("Web server berjalan di http://localhost:8080")
@@ -48,7 +48,7 @@ def handle_request(request):
     # Jika file tidak ditemukan
     except FileNotFoundError:
         # Membuat konten untuk pesan 404 Not Found
-        print("404 Error..")
+        print("404 Not Found")
         content = b"<h1>404 Not Found</h1>"
         # Membuat response header untuk pesan 404 Not Found
         response_header = f"HTTP/1.1 404 Not Found\r\nContent-Length: {len(content)}\r\nContent-Type: text/html\r\n\r\n"
